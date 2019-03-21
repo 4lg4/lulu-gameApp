@@ -1,12 +1,13 @@
 <?php
 
 //  ....................................
-//  Games App - Aplicação exemplo em PHP
+//  Games App - AplicaÃ§Ã£o exemplo em PHP
 //  ....................................
 
+include("./_config.php");
 
 function conectaDB(){
-	$con  =  mysqli_connect("localhost","root","","games");
+	$con  =  mysqli_connect($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_DB);
 	
 	if(!$con){
 		echo "<h2>Erro na conexao com a base dados...</h2>"; 
@@ -16,6 +17,7 @@ function conectaDB(){
 	$con->set_charset("utf8");
 	return $con;
 }
+
 function mostraTabela($qtdeColunas, $consulta, $func){
 	
 	$i = 0;
