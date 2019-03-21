@@ -1,5 +1,5 @@
 function ajaxCall(stringCall, callback){
-var httpRequest = new XMLHttpRequest;
+	var httpRequest = new XMLHttpRequest;
     
 	httpRequest.onreadystatechange = function(){
 		if (httpRequest.readyState === 4) {
@@ -11,13 +11,15 @@ var httpRequest = new XMLHttpRequest;
 	httpRequest.open('GET', stringCall);
 	httpRequest.send();
 }
+
 function inicializa(){
 	ajaxCall("games.php?action=recuperaCidades", inicializaSelecaoCidades);
 	ajaxCall("games.php?action=recuperaFabricantes", inicializaSelecaoFabricantes);
-	ajaxCall("games.php?action=mostraUsuarios", listaUsuarios);
+	ajaxCall("games.php?action=users", listaUsuarios);
 	ajaxCall("games.php?action=mostraJogos", listaJogos);
 	ajaxCall("games.php?action=mostraRemetente", listaRemetentes);
 }
+
 function insereUsuario(){	
 	var i_use = document.getElementById('i_use').value;
 	var i_nic = document.getElementById('i_nic').value;

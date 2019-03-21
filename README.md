@@ -16,3 +16,9 @@
 
 ### Get Started
 > frontend, backend, db folders contain the relevant files to each part of the project
+
+### Development
+> serve the backend to development (http://localhost:8888)
+```bash
+    cd backend && php -S 127.0.0.1:8888
+```
