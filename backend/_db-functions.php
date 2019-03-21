@@ -1,7 +1,7 @@
 <?php
 
 function dbConnect(){
-	$con  =  mysqli_connect($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_DB);
+	$con  =  mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DB);
 	
 	if(!$con){
 		echo "<h2>Erro na conexao com a base dados...</h2>"; 
