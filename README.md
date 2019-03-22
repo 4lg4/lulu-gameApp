@@ -15,15 +15,15 @@
 
 
 ### Get Started
-> frontend, backend, db folders contain the relevant files to each part of the project
+> assets, backend, db folders contain the relevant files to each part of the project
 
 ### Development
 ##### db
 > create a DB on your mysql and import the /db/games.sql
 > configure backend/_config.php with your mysql creds
 
-##### backend
-> serve the backend to development (http://localhost:8888)
+##### Running
+> to serve the project on (http://localhost:8888) run the command below on the project folder
 ```bash
-    cd backend && php -S 127.0.0.1:8888
+    php -S 127.0.0.1:8888
 ```

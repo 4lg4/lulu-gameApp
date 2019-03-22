@@ -12,11 +12,47 @@ function ajaxCall(stringCall, callback){
 	httpRequest.send();
 }
 
+// Service client to counicate with the backend
+const service = (()=>{
+	const baseURL = 'backend/?action=';
+
+	const ajaxCall = (stringCall, callback) => {
+		var httpRequest = new XMLHttpRequest;
+		
+		httpRequest.onreadystatechange = function(){
+			if (httpRequest.readyState === 4) {
+				if (httpRequest.status === 200) {
+				  callback(httpRequest.responseText);
+				}
+			}
+		};
+		httpRequest.open('GET', stringCall);
+		httpRequest.send();
+	}
+
+	const get = (action, params, callback)=> {
+		return ajaxCall(`${baseURL}${action}`, callback);
+	};
+
+	const create = (action, params, callback)=> {
+		return ajaxCall(`${baseURL}${action}`, callback);
+	};
+
+	const del = (action, params, callback)=> {
+		return ajaxCall(`${baseURL}${action}`, callback);
+	};
+
+	return {get, create, del};
+})();
+
 function inicializa(){
+	// service.get('users', null, inicializaSelecaoCidades);
 	ajaxCall("games.php?action=recuperaCidades", inicializaSelecaoCidades);
 	ajaxCall("games.php?action=recuperaFabricantes", inicializaSelecaoFabricantes);
-	ajaxCall("games.php?action=users", listaUsuarios);
-	ajaxCall("games.php?action=mostraJogos", listaJogos);
+	service.get('users', null, listaUsuarios);
+	// ajaxCall("games.php?action=users", listaUsuarios);
+	service.get('games', null, listaJogos);
+	// ajaxCall("games.php?action=mostraJogos", listaJogos);
 	ajaxCall("games.php?action=mostraRemetente", listaRemetentes);
 }
 
