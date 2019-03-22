@@ -79,6 +79,56 @@ function mostraForum(){
 	{
 		recuperaTabela('fabricantes');
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	if(@$_REQUEST['action'] == "insJogo") //insere novo Jogo
+	{
+		$con = conectaDB();
+		$jogo = $con->real_escape_string($_REQUEST['jogo']);
+		$fabricante = $con->real_escape_string($_REQUEST['fab']);
+		$preco = floatval($_REQUEST['preco']);
+		$classificacao = intval($_REQUEST['class']);
+		
+		mysqli_query($con,"INSERT INTO titulos (nome,fabricante,preco,classificacao) VALUES('$jogo','$fabricante','$preco','$classificacao');");
+		$con->close();			
+		mostraJogos();
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	if(@$_REQUEST['action'] == "ins")  //insere novo Usuario
 	{
 		$con = conectaDB();
@@ -93,18 +143,6 @@ function mostraForum(){
 		$con->close();			
 		mostraUsuarios();
 	}
-	if(@$_REQUEST['action'] == "insJogo") //insere novo Jogo
-	{
-		$con = conectaDB();
-		$jogo = $con->real_escape_string($_REQUEST['jogo']);
-		$fabricante = $con->real_escape_string($_REQUEST['fab']);
-		$preco = floatval($_REQUEST['preco']);
-		$classificacao = intval($_REQUEST['class']);
-		
-		mysqli_query($con,"INSERT INTO titulos (nome,fabricante,preco,classificacao) VALUES('$jogo','$fabricante','$preco','$classificacao');");
-		$con->close();			
-		mostraJogos();
-	}
 	if(@$_REQUEST['action'] == "del")     //remove Usuario
 	{
 		$con = conectaDB();
@@ -112,6 +150,19 @@ function mostraForum(){
 		$con->close();
 		mostraUsuarios();
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	if(@$_REQUEST['action'] == "delJogo") //remove Jogo
 	{
 		$con = conectaDB();

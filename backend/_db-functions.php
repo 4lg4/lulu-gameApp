@@ -12,23 +12,20 @@ function dbConnect(){
 	return $con;
 }
 
-function dbGetContent($qtdeColunas, $consulta, $func){
+function dbGetContent($consulta){
 	$i = 0;
 	$tab = "";
-	while( $row = mysqli_fetch_array($consulta, MYSQLI_NUM) ) 
-	{
-		$tab .=  "<tr valign = center>";
-		$tab .=  "<td class=tabv><img src=img/sp.gif width=10 height=8></td>";
-		for($j = 0; $j < $qtdeColunas; $j++){
-			$tab .=  "<td class = tabv width = 180 height = 6>".htmlspecialchars($row[$j])."&nbsp;</td>"; 
-		}		
-		$tab .=  "<td class = tabv><button type = \"button\" onclick = \"deleta".$func."(".htmlspecialchars($row[$j]).")\">X</button></td>";
-		$tab .=  "<td class = tabv></td>"; //exemplo de html gerado: "... onclick = deletaJogo(3)><X> ..."
-		$tab .=  "</tr>";
-		$i++;
+	$results = [];
+
+	while( $row = mysqli_fetch_array($consulta, MYSQLI_NUM) ) {
+		array_push($results, $row);
 	}
-	$tab .=  "<p></p>";
-	echo $tab;
+
+	return $results;
+}
+
+function dbScapeString($string) {
+	return mysqli_real_escape_string($string);
 }
 
 function dbGetTable($tabela){
