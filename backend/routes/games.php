@@ -31,14 +31,17 @@ function createGames($game){
 // Routes users
 // GET games
 if(@$_REQUEST['action'] == "games") {
-	httpSuccess(getGames());
+	$allGames = getGames();
+	httpSuccess($allGames);
 	exit;
 }
 
 // DELETE games
 if(@$_REQUEST['action'] == "gamesDelete") {
 	deleteGames($_REQUEST['id']);
-	httpSuccess(getGames());
+	httpSuccess(
+		getGames()
+	);
 	exit;
 }
 
@@ -51,6 +54,8 @@ if(@$_REQUEST['action'] == "gamesCreate") {
 		'class' => $_REQUEST['class'],
 	]);
 	
-	httpSuccess(getGames());
+	httpSuccess(
+		getGames()
+	);
 	exit;
 }

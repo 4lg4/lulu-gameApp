@@ -12,17 +12,18 @@ function ajaxCall(stringCall, callback){
 	httpRequest.send();
 }
 
-// Service client to counicate with the backend
-const service = (()=>{
+// Service client to communicate with the backend
+// var / let / const
+const service = (()=> {
 	const baseURL = 'backend/?action=';
 
 	const ajaxCall = (stringCall, callback) => {
-		var httpRequest = new XMLHttpRequest;
+		const httpRequest = new XMLHttpRequest;
 		
 		httpRequest.onreadystatechange = function(){
 			if (httpRequest.readyState === 4) {
 				if (httpRequest.status === 200) {
-				  callback(httpRequest.responseText);
+				  callback(JSON.parse(httpRequest.responseText).data);
 				}
 			}
 		};
@@ -51,8 +52,9 @@ function inicializa(){
 	ajaxCall("games.php?action=recuperaFabricantes", inicializaSelecaoFabricantes);
 	service.get('users', null, listaUsuarios);
 	// ajaxCall("games.php?action=users", listaUsuarios);
+	// service.get('games', null, listaJogos);
 	service.get('games', null, listaJogos);
-	// ajaxCall("games.php?action=mostraJogos", listaJogos);
+	ajaxCall("backend/old/?action=mostraJogos", listaJogos2);
 	ajaxCall("games.php?action=mostraRemetente", listaRemetentes);
 }
 
@@ -113,11 +115,52 @@ function inicializaSelecaoFabricantes(lisFabricantes){
 function listaUsuarios(lisUsuarios){
 	document.getElementById('tab_usuarios').innerHTML = lisUsuarios;
 }
-function listaJogos(lisJogos){
-	document.getElementById('tab_jogos').innerHTML = lisJogos;
+
+function listaJogos(games){
+	console.log('BACKEND', games);
+	const table = document.querySelector('#games tbody');
+
+	games.map((r)=>{ r.push('actions'); return r;}).forEach(function(row, rowIndex) {
+		const tr = document.createElement('tr');
+		tr.vAlign = 'center';
+	
+		row.forEach(function(column, columnIndex) {
+			const td = document.createElement('td');
+			td.classList.add('tabv');
+
+			if (column === 'actions') {
+				const button = document.createElement('button');
+				button.innerText = "X";
+				button.addEventListener('click', ()=> alert(row[rowIndex][4]));
+				tr.appendChild(button);
+			} else {
+				td.innerText = column;
+			}
+
+			tr.appendChild(td);
+		});
+
+		table.appendChild(tr);
+	});
+
+	
+
+	// <tr valign="center">
+	//     <td class="tabv"><img src="img/sp.gif" width="10" height="8"></td>
+	//     <td class="tabv" width="180" height="6">Avadon&nbsp;</td>
+	//     <td class="tabv"><button type="button" onclick="deletaJogo(EA)">X</button></td>
+	//     <td class="tabv"></td>
+	// </tr>
+}
+
+function listaJogos2(lisJogos){
+	document.getElementById('tab_jogos2').innerHTML = lisJogos;
 }
 
 function inicializaSelecaoRemetentes(lisRemetentes){  
   inicializaSelecao(lisRemetentes, "listaRemetentes");
 }
 
+(function(){
+	inicializa();
+})();

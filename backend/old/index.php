@@ -4,10 +4,10 @@
 //  Games App - Aplicação exemplo em PHP
 //  ....................................
 
-include("./_config.php");
+include("../_config.php");
 
 function conectaDB(){
-	$con  =  mysqli_connect($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_DB);
+	$con  =  mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DB);
 	
 	if(!$con){
 		echo "<h2>Erro na conexao com a base dados...</h2>"; 

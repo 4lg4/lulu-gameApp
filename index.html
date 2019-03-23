@@ -3,13 +3,14 @@
 
 <html>
 <head>
-<title>Games App</title>
-<meta charset="UTF-8" />
-<link href="assets/css/games.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="assets/js/games.js"></script>
+	<title>Games App</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="assets/css/games.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="assets/js/games.js"></script>
 </head>
 
-<body onload = "inicializa()">
+<body>
 
 <h1>Games App</h1>
 <p>Um exemplo com HTML+CSS+Javascript e PHP<p>
@@ -18,13 +19,13 @@
 
 <table border=0 cellpadding=0 cellspacing=0>
 	<tr bgcolor=#ff0000> 
-	<td><img src="assets/img/sp.gif" width=10 height=25></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Usuário</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Nick</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Cidade</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Email</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180  height=4><br><b>Idade</b></td>
-	<td><img src="assets/img/sp.gif" width=26 height=4></td>
+		<td><img src="assets/img/sp.gif" width=10 height=25></td>
+		<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Usuário</b></td>
+		<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Nick</b></td>
+		<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Cidade</b></td>
+		<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Email</b></td>
+		<td class=tabcab><img src="assets/img/sp.gif" width=180  height=4><br><b>Idade</b></td>
+		<td><img src="assets/img/sp.gif" width=26 height=4></td>
 	</tr>
 </table>
 
@@ -43,18 +44,23 @@
 
 <h2>Tabela Jogos</h2>
 
-<table border=0 cellpadding=0 cellspacing=0>
-	<tr bgcolor=#33dd22>
-	<td><img src="assets/img/sp.gif" width=10 height=25></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Jogo</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Fabricante</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180  height=4><br><b>Preço</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180  height=4><br><b>Classificação</b></td>
-	<td><img src="assets/img/sp.gif" width=26 height=4></td>
-	</tr>
+<table border=0 cellpadding=0 cellspacing=0 width="100%" id='games'>
+	<thead>
+		<tr bgcolor=#33dd22>
+			<th class=tabcab><b>Jogo</b></th>
+			<th class=tabcab><b>Fabricante</b></th>
+			<th class=tabcab><b>Preço</b></th>
+			<th class=tabcab><b>Classificação</b></th>
+			<th class=tabcab><b>Codigo</b></th>
+			<th class=tabcab><b>Ações</b></th>
+		</tr>
+	</thead>
+	<tbody></tbody>
 </table>
+<br>
+<br>
 
-<table id='tab_jogos' border=0 cellpadding=0 cellspacing=0></table>
+<table id='tab_jogos2' border=0 cellpadding=0 cellspacing=0></table>
 
 <form>
 	<table border=0 cellpadding=0 cellspacing=0>
@@ -70,11 +76,11 @@
 
 <table border=0 cellpadding=0 cellspacing=0>
 	<tr bgcolor=#0066cc>
-	<td><img src="assets/img/sp.gif" width=10 height=25></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Remetente</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Título da mensagem</b></td>
-	<td class=tabcab><img src="assets/img/sp.gif" width=180  height=4><br><b>Mensagem</b></td>
-	<td><img src="assets/img/sp.gif" width=26 height=4></td>
+		<td><img src="assets/img/sp.gif" width=10 height=25></td>
+		<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Remetente</b></td>
+		<td class=tabcab><img src="assets/img/sp.gif" width=180 height=4><br><b>Título da mensagem</b></td>
+		<td class=tabcab><img src="assets/img/sp.gif" width=180  height=4><br><b>Mensagem</b></td>
+		<td><img src="assets/img/sp.gif" width=26 height=4></td>
 	</tr>
 </table>
 

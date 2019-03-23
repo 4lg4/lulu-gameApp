@@ -8,8 +8,8 @@ include("_db-functions.php");
 include("_http-functions.php");
 
 // include all routes
-include("users.php");
-include("games.php");
+include("routes/users.php");
+include("routes/games.php");
 
 // if no route selected serve the page
 httpError('Nothing to see here');
